@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#17231c">
+  <title>Wildbound — 3D Survival</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loading" class="overlay">
+    <div class="panel">
+      <div class="eyebrow">WILDBOUND SURVIVAL</div>
+      <h1>Into the wild.</h1>
+      <p>Gather supplies. Keep moving. Make it through the night.</p>
+      <div class="loading-track"><div id="loadingBar"></div></div>
+      <small id="loadingText">Loading the wilderness…</small>
+    </div>
+  </div>
+
+  <div id="menu" class="overlay hidden">
+    <div class="panel menu-panel">
+      <div class="eyebrow">WILDBOUND SURVIVAL</div>
+      <h1>Survive the wild.</h1>
+      <p class="lede">An open-world survival prototype. Explore a misty forest, collect resources, manage your needs, and build a campfire before night falls.</p>
+      <div class="feature-grid">
+        <div><span>01</span><b>Explore</b><small>Forest, rocks & shoreline</small></div>
+        <div><span>02</span><b>Scavenge</b><small>Wood, stone & berries</small></div>
+        <div><span>03</span><b>Endure</b><small>Hunger, thirst & health</small></div>
+      </div>
+      <button id="startBtn" class="primary">Start survival</button>
+      <p class="fineprint">Best with headphones. Your progress resets when you reload.</p>
+    </div>
+  </div>
+
+  <div id="hud" class="hidden">
+    <div class="topline">
+      <div class="brand"><span class="brand-mark">W</span><div><b>WILDBOUND</b><small>FIELD JOURNAL · DAY <span id="dayNum">1</span></small></div></div>
+      <div class="clock"><span class="sun-icon">◷</span><span id="timeLabel">08:00</span><small id="weatherLabel">MISTY</small></div>
+    </div>
+    <div class="status-panel">
+      <div class="status-row"><span>HEALTH</span><div class="meter"><i id="healthBar" class="health"></i></div><b id="healthVal">100</b></div>
+      <div class="status-row"><span>HUNGER</span><div class="meter"><i id="hungerBar" class="hunger"></i></div><b id="hungerVal">100</b></div>
+      <div class="status-row"><span>THIRST</span><div class="meter"><i id="thirstBar" class="thirst"></i></div><b id="thirstVal">100</b></div>
+      <div class="status-row"><span>STAMINA</span><div class="meter"><i id="staminaBar" class="stamina"></i></div><b id="staminaVal">100</b></div>
+    </div>
+    <div class="inventory-panel">
+      <div class="panel-heading">PACK <small>RESOURCES</small></div>
+      <div class="resource"><span>🪵</span><label>Wood</label><b id="woodVal">0</b></div>
+      <div class="resource"><span>🪨</span><label>Stone</label><b id="stoneVal">0</b></div>
+      <div class="resource"><span>🫐</span><label>Berries</label><b id="berryVal">0</b></div>
+      <button id="eatBtn" class="small-btn">Eat berries <kbd>E</kbd></button>
+      <button id="drinkBtn" class="small-btn">Drink water <kbd>Q</kbd></button>
+      <button id="fireBtn" class="small-btn camp-btn">Build campfire <kbd>F</kbd><small>5 wood · 3 stone</small></button>
+    </div>
+    <div class="objective"><span class="objective-dot"></span><div><small>CURRENT OBJECTIVE</small><b id="objectiveText">Find supplies and build a campfire</b></div></div>
+    <div class="crosshair"><i></i><b></b></div>
+    <div id="hint" class="hint">WASD to move · Shift to sprint · Click to look · L flashlight</div>
+    <div id="toast" class="toast"></div>
+    <div id="interactLabel" class="interact-label hidden">[ E ] Collect resource</div>
+    <div class="bottom-left"><span class="dot"></span> SURVIVAL MODE <span class="separator">/</span> SOLO</div>
+    <button id="pauseBtn" class="pause-btn" aria-label="Pause">Ⅱ</button>
+  </div>
+
+  <div id="pauseMenu" class="overlay hidden">
+    <div class="panel">
+      <div class="eyebrow">FIELD JOURNAL</div>
+      <h2>Take a breath.</h2>
+      <p>Your journey is paused.</p>
+      <button id="resumeBtn" class="primary">Continue journey</button>
+      <button id="restartBtn" class="secondary">Restart world</button>
+    </div>
+  </div>
+
+  <div id="gameOver" class="overlay hidden">
+    <div class="panel">
+      <div class="eyebrow">WILDERNESS REPORT</div>
+      <h1>Lost to the wild.</h1>
+      <p>You survived until <b id="finalDay">Day 1</b>. Every journey teaches something.</p>
+      <button id="againBtn" class="primary">Try again</button>
+    </div>
+  </div>
+
+  <div id="mobileControls" class="hidden">
+    <div id="joystick" class="joystick"><div id="stick" class="stick"></div></div>
+    <div class="mobile-actions">
+      <button id="jumpBtn" aria-label="Jump">↑</button>
+      <button id="collectBtn" aria-label="Collect">E</button>
+      <button id="sprintBtn" aria-label="Sprint">⇧</button>
+    </div>
+    <div class="mobile-extra"><button id="flashBtn">🔦</button><button id="mobileEatBtn">🍓</button><button id="mobileDrinkBtn">💧</button></div><div class="look-note" id="lookNote">Drag right side to look</div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>
